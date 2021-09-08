@@ -52,7 +52,7 @@ namespace testpro.models
             }
         };
 
-        [HttpGet("{id}")]
+        
        public  User get(int id)
         {
             var b = Users.FirstOrDefault(x => x.Id == id);
@@ -64,13 +64,11 @@ namespace testpro.models
             return Users;
         }
 
-        [HttpPost]
-       public  void AddUser([FromBody]User u)
+       public  void AddUser(User u)
         {
             Users.Add(u);
         }
 
-        [HttpDelete("{id}")]
        public  void DeleteUser(int id)
         {
             var a = Users.FirstOrDefault(x => x.Id == id);
