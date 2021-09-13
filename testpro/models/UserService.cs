@@ -8,8 +8,8 @@ namespace testpro.models
 {
     public class UserService : IUser
     {
-        public List<User> Users = new List<User>(){
-        new User
+         List<User> Users = new List<User>(){
+        new User()
             {
                 DoB = DateTime.Now,
                 Id = 0,
@@ -18,7 +18,7 @@ namespace testpro.models
                 phone = "0597060876"
 
             },
-        new User
+        new User()
             {
                 phone = "0597023451",
                 DoB = DateTime.Today,
@@ -26,7 +26,7 @@ namespace testpro.models
                 email = "johnnysmith@gmail.com",
                 Id = 2
             },
-        new User
+        new User()
             {
                 phone = "0597032156",
                 DoB = DateTime.Today,
@@ -34,7 +34,7 @@ namespace testpro.models
                 email = "jack@gmail.com",
                 Id = 1
             },
-         new User
+         new User()
             {
                 phone = "0596056785",
                 DoB = DateTime.Today,
@@ -42,7 +42,7 @@ namespace testpro.models
                 email = "julian@gmail.com",
                 Id = 3
             },
-          new User
+          new User()
             {
                 phone = "0599085643",
                 DoB = DateTime.Today,
@@ -71,7 +71,7 @@ namespace testpro.models
 
        public  void DeleteUser(int id)
         {
-            var a = Users.FirstOrDefault(x => x.Id == id);
+            var a = Users.SingleOrDefault(x => x.Id == id);
             if (a != null)
             Users.Remove(a);
         }
