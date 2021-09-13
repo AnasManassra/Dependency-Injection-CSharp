@@ -7,6 +7,10 @@ namespace testpro.models
 {
     public class User
     {
+        public User()
+        {
+        }
+
         public User(int Id)
         {
             this.Id = Id;
