@@ -12,7 +12,11 @@ namespace testpro.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-
+        private readonly AppDbContext _dbcontext;
+        public UserController(AppDbContext dbContext)
+        {
+            _dbcontext = dbContext;
+        }
         IUser U = null;
          public UserController(IUser U)
         {
@@ -21,6 +25,10 @@ namespace testpro.Controllers
         [HttpGet]
         public List<User> Get()
         {
+
+            _dbcontext.Users.ToList();
+            _dbcontext.Users.Add(entity: new User(Id: 10) { name = "Test" });
+            _dbcontext.SaveChanges();
             return U.getall();
         }
 
